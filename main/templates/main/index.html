@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+{% block title %}
+главная
+{% endblock %}
+
+
+{% block content %}
+<div class="container marketing">
+<div class="row">
+    {% for el in game_inf %}
+      <div class="col-lg-4" style="word-wrap: break-word; overflow-wrap: break-word">
+          {% if el.game_icon %}
+            <img src="{{ el.game_icon.url }}" style = 'width: 140px; height: 140px; border-radius: 50%'>
+          {% else %}
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" role="img" aria-label="Placeholder: 100x100" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+          {% endif %}
+        <h2 class="fw-normal">{{ el.game_name }}</h2>
+        <p>{{ el.about_game | linebreaks | truncatewords:15 }}</p>
+        <p><a class="btn btn-secondary" href="{{ el.get_absolute_url }}">View details »</a></p>
+      </div>
+    {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

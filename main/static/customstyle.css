@@ -1,0 +1,6 @@
+.main_content_for_game {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+}
